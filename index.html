@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quizapp</title>
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
@@ -32,37 +32,38 @@
             <img src="img/img1.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Frage</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
+                <p class="card-text" id="question-text"></p>
             </div>
 
-            <div class="card mb-2 ms-4 me-4">
-                <div class="card-body">
+
+            <!-- Answer-Cards -->
+            <div class="card mb-2 ms-4 me-4 quiz-answer" onclick="answer('answer_1')">
+                <div id="answer_1" class="card-body">
                     Antwort
                 </div>
             </div>
 
-            <div class="card mb-2 ms-4 me-4">
-                <div class="card-body">
+            <div class="card mb-2 ms-4 me-4 quiz-answer" onclick="answer('answer_2')">
+                <div id="answer_2" class="card-body">
                     Antwort
                 </div>
             </div>
 
-            <div class="card mb-2 ms-4 me-4">
-                <div class="card-body">
+            <div class="card mb-2 ms-4 me-4 quiz-answer" onclick="answer('answer_3')">
+                <div id="answer_3" class="card-body">
                     Antwort
                 </div>
             </div>
 
-            <div class="card mb-2 ms-4 me-4">
-                <div class="card-body">
+            <div class="card mb-2 ms-4 me-4 quiz-answer" onclick="answer('answer_4')">
+                <div id="answer_4" class="card-body">
                     Antwort
                 </div>
             </div>
 
             <div class="question-footer mb-2 mt-2 ms-4 me-4">
                 <span>
-                    <b>1</b> von <b>5</b> Fragen
+                    <b>1</b> von <b id="total-questions"></b> Fragen
                 </span>
                 <button class="btn btn-primary"> Nächste Frage </button>
             </div>

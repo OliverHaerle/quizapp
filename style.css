@@ -25,3 +25,16 @@ body {
 .quiz-card {
     width: 30rem;
 }
+
+.quiz-answer:hover {
+    cursor: pointer;
+    background-color: rgb(243, 242, 242);
+}
+
+.bg-success {
+    color: white !important;
+}
+
+.bg-danger{
+    color: white !important;
+}
