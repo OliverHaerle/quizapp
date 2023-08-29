@@ -28,44 +28,38 @@
     </nav>
 
     <div class="container">
-        <div class="card quiz-card">
-            <img src="img/img1.jpg" class="card-img-top" alt="...">
+        <div id="whole-card" class="card quiz-card">
+            <img src="img/img1.jpg" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title">Frage</h5>
+                <h5 class="card-title">Question</h5>
                 <p class="card-text" id="question-text"></p>
             </div>
+
+            <div class="card-body"></div>
 
 
             <!-- Answer-Cards -->
             <div class="card mb-2 ms-4 me-4 quiz-answer" onclick="answer('answer_1')">
-                <div id="answer_1" class="card-body">
-                    Antwort
-                </div>
+                <div id="answer_1" class="card-body"></div>
             </div>
 
             <div class="card mb-2 ms-4 me-4 quiz-answer" onclick="answer('answer_2')">
-                <div id="answer_2" class="card-body">
-                    Antwort
-                </div>
+                <div id="answer_2" class="card-body"></div>
             </div>
 
             <div class="card mb-2 ms-4 me-4 quiz-answer" onclick="answer('answer_3')">
-                <div id="answer_3" class="card-body">
-                    Antwort
-                </div>
+                <div id="answer_3" class="card-body"></div>
             </div>
 
             <div class="card mb-2 ms-4 me-4 quiz-answer" onclick="answer('answer_4')">
-                <div id="answer_4" class="card-body">
-                    Antwort
-                </div>
+                <div id="answer_4" class="card-body"></div>
             </div>
 
             <div class="question-footer mb-2 mt-2 ms-4 me-4">
                 <span>
-                    <b>1</b> von <b id="total-questions"></b> Fragen
+                    <b id="current-question"></b> of <b id="total-questions"></b> questions
                 </span>
-                <button class="btn btn-primary"> Nächste Frage </button>
+                <button onclick="nextQuestion()" disabled id="next-button" class="btn btn-primary"> next question </button>
             </div>
 
 

@@ -38,3 +38,17 @@ body {
 .bg-danger{
     color: white !important;
 }
+
+.align-text {
+    text-align: center;
+}
+
+.trophy.image {
+    padding: 30px;
+}
+
+.finished {
+    text-align: center;
+    border: none;
+    margin: 8px 0 12px 0;
+}

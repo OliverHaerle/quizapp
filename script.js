@@ -49,35 +49,63 @@ let questions = [
     },
 ];
 
-let currentQuestion = 0;
+let currentQuestion = 6;
 
 function init() {
     document.getElementById('total-questions').innerHTML = questions.length;
-
     showQuestion();
 }
 
 function showQuestion() {
     let question = questions[currentQuestion];
 
-    document.getElementById('question-text').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+    if (currentQuestion >= questions.length) {
+        document.getElementById('whole-card').innerHTML = `
+        <div class="card quiz-card">
+        <h3 class="finished">Finished quiz!</h3>
+        <img src="img/trophy.png" class="trophy-image">
+        <div class="card-body">
+            <h5 class="card-title align-text"> You answered _ out of ${questions.length} questions correctly </h5>
+            `;
+    } else {
+        document.getElementById('current-question').innerHTML = currentQuestion + 1;
+        document.getElementById('question-text').innerHTML = question['question'];
+        document.getElementById('answer_1').innerHTML = question['answer_1'];
+        document.getElementById('answer_2').innerHTML = question['answer_2'];
+        document.getElementById('answer_3').innerHTML = question['answer_3'];
+        document.getElementById('answer_4').innerHTML = question['answer_4'];
+    }
 }
 
 function answer(selection) {
-   let question = questions[currentQuestion];
-   let selectedQuestionNumber = selection.slice(-1);
+    let question = questions[currentQuestion];
+    let selectedQuestionNumber = selection.slice(-1);
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
 
+    if (selectedQuestionNumber == question['right_answer']) {
+        document.getElementById(selection).parentNode.classList.add('bg-success');
+    } else {
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+    }
 
-    let idOfRightAnswer = question[`right_answer`];
+    document.getElementById('next-button').disabled = false;
+}
 
-   if (selectedQuestionNumber == question['right_answer']) {
-    document.getElementById(selection).parentNode.classList.add('bg-success');
-   } else {
-    document.getElementById(selection).parentNode.classList.add('bg-danger');
-    document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
-   }
+function nextQuestion() {
+    currentQuestion++;
+    document.getElementById('next-button').disabled = true;
+    resetAnswerButtons();
+    showQuestion();
+}
+
+function resetAnswerButtons() {
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
 }
